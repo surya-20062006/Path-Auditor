@@ -29,12 +29,9 @@ COPY --from=builder /install /usr/local
 
 COPY . /app
 
-EXPOSE 8000
+EXPOSE 8080
 
 ENV PYTHONPATH=/app
 ENV ENVIRONMENT=production
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-    CMD curl -f http://localhost:8000/api/v1/health || exit 1
-
-CMD ["streamlit", "run", "streamlit_app.py", "--server.address=0.0.0.0", "--server.port=8000"]
+CMD sh -c "streamlit run streamlit_app.py --server.address=0.0.0.0 --server.port=$PORT"
