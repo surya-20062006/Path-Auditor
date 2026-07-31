@@ -1,5 +1,7 @@
 # DECISION PATH AUDITOR - AI Governance & Policy Evaluation Platform
 
+🌐 **Live Demo:** [http://16.192.161.59:8501](http://16.192.161.59:8501)
+
 ---
 
 ## 1. Project Overview
@@ -101,13 +103,20 @@ Path_Auditor/
 
 ## 8. How to Run
 
-### Option 1: One-Click Launch (Windows)
+### 🌐 Option 1: Use the Live Deployed Version
+The application is already deployed and ready to use. Just open your browser and visit:
+
+**[http://16.192.161.59:8501](http://16.192.161.59:8501)**
+
+No installation needed.
+
+### Option 2: One-Click Launch (Windows — Local)
 Double-click the startup batch script in the project root:
 ```bash
 run_streamlit.bat
 ```
 
-### Option 2: Run via Terminal
+### Option 3: Run via Terminal (Local)
 Run the Streamlit application directly from your terminal:
 ```bash
 streamlit run streamlit_app.py --server.port 8501
