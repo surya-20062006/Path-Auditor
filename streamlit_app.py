@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Decision Path Auditor - Enterprise AI Governance SaaS Platform
-Streamlit Frontend with Real-Time Data Evaluation, Intelligent Rule Engine,
-Zero-Knowledge PII Tokenization, and Cyber-Indigo Aurora Custom Animations.
+Decision Path Auditor - AI Governance & Policy Evaluation Platform
+Streamlit web dashboard for evaluating policy compliance, redacting sensitive
+data with PII tokenization, and logging historical audit records.
 """
 
 import os
