@@ -1,0 +1,37 @@
+{
+  "title": "Decision Path Auditor — AI Governance & Observability",
+  "timezone": "browser",
+  "schemaVersion": 38,
+  "refresh": "5s",
+  "panels": [
+    {
+      "title": "Total Audited Agent Runs",
+      "type": "stat",
+      "gridPos": { "h": 6, "w": 6, "x": 0, "y": 0 },
+      "targets": [{ "expr": "sum(agent_runs_total)", "legendFormat": "Total Runs" }]
+    },
+    {
+      "title": "PII Tokens Protected (AES-256-GCM)",
+      "type": "stat",
+      "gridPos": { "h": 6, "w": 6, "x": 6, "y": 0 },
+      "targets": [{ "expr": "sum(pii_redactions_total)", "legendFormat": "Redactions" }]
+    },
+    {
+      "title": "Token Consumption (Prompt vs Completion)",
+      "type": "timeseries",
+      "gridPos": { "h": 6, "w": 12, "x": 12, "y": 0 },
+      "targets": [
+        { "expr": "sum(rate(agent_tokens_total{token_type='prompt'}[5m]))", "legendFormat": "Prompt Tokens/sec" },
+        { "expr": "sum(rate(agent_tokens_total{token_type='completion'}[5m]))", "legendFormat": "Completion Tokens/sec" }
+      ]
+    },
+    {
+      "title": "Agent Execution Latency P95 (seconds)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 6 },
+      "targets": [
+        { "expr": "histogram_quantile(0.95, sum(rate(agent_run_latency_seconds_bucket[5m])) by (le))", "legendFormat": "P95 Latency (s)" }
+      ]
+    }
+  ]
+}
